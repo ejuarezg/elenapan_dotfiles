@@ -114,8 +114,8 @@ user = {
     -- https://github.com/RMTT/lua-pam
     -- as described in the README instructions
     -- Leave it empty in order to unlock with just the Enter key.
-    -- lock_screen_custom_password = "",
-    lock_screen_custom_password = "awesome",
+    lock_screen_custom_password = "",
+    -- lock_screen_custom_password = "awesome",
 
     -- >> Battery <<
     -- You will receive notifications when your battery reaches these
