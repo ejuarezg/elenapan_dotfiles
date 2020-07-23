@@ -74,7 +74,7 @@ day_of_the_week:connect_signal("widget::redraw_needed", function ()
 end)
 
 local month = wibox.widget {
-    font = "San Francisco Display Heavy 100",
+    font = "SF Pro Display Bold 100",
     align = "center",
     valign = "center",
     widget = wibox.widget.textclock("%B %d")
