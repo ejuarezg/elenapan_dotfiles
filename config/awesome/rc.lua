@@ -81,6 +81,7 @@ user = {
     browser = "firefox",
     file_manager = "kitty -1 --class files -e ranger",
     editor = "kitty -1 --class editor -e vim",
+    ide = "code",
     email_client = "kitty -1 --class email -e neomutt",
     music_client = "kitty -o font_size=12 --class music -e ncmpcpp",
 
@@ -861,7 +862,7 @@ awful.rules.rules = {
                 "glyphclientapp.exe"
             },
         },
-        properties = { screen = 1, tag = awful.screen.focused().tags[2] }
+        properties = { screen = 1, tag = awful.screen.focused().tags[9] }
     },
 
     -- Chatting
@@ -880,6 +881,16 @@ awful.rules.rules = {
                 "6cord",
             },
         },
+        properties = { screen = 1, tag = awful.screen.focused().tags[4] }
+    },
+
+    -- IDEs
+    {
+        rule_any = {
+            class = {
+                "VSCodium"
+            },
+        },
         properties = { screen = 1, tag = awful.screen.focused().tags[3] }
     },
 
@@ -890,6 +901,16 @@ awful.rules.rules = {
                 "^editor$",
                 -- "Emacs",
                 -- "Subl3",
+            },
+        },
+        properties = { screen = 1, tag = awful.screen.focused().tags[2] }
+    },
+
+    -- Document viewers
+    {
+        rule_any = {
+            class = {
+                "tabbed"
             },
         },
         properties = { screen = 1, tag = awful.screen.focused().tags[4] }
