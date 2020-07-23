@@ -7,10 +7,11 @@ SCRATCHPAD_WINDOW="$(xdotool search --classname scratchpad)"
 # (Checking for the window should not be necessary if AwesomeWM does it already)
 if [ ${#SCRATCHPAD_WINDOW} -eq "0" ]; then
     # If the session does not exist, create a new one
-    if [ ${#SCRATCHPAD_SESSION} -eq "0" ]; then 
-        kitty -1 --class scratchpad -e tmux new-session -s scratchpad &
+    if [ ${#SCRATCHPAD_SESSION} -eq "0" ]; then
+        # The -u flag explicitly informs tmux that UTF-8 is supported
+        kitty -1 --class scratchpad -e tmux -u new-session -s scratchpad &
     # Else attach to the session
     else
-        kitty -1 --class scratchpad -e tmux attach -t scratchpad &
+        kitty -1 --class scratchpad -e tmux -u attach -t scratchpad &
     fi
 fi
