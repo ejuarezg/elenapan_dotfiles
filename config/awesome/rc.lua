@@ -1101,6 +1101,16 @@ awful.spawn.easy_async_with_shell("stat "..dashboard_flag_path.." >/dev/null 2>&
     end
 end)
 
+-- Autostart programs
+-- ===================================================================
+
+-- Taken from apps.compositor function in apps.lua
+awful.spawn.with_shell("sh -c 'picom --config ~/.config/picom/picom.conf & disown'")
+
+-- Taken from apps.night_mode function in apps.lua, but with the fade-in left
+-- enabled
+awful.spawn.easy_async_with_shell("redshift -l 0:0 -t 6500:3700 &>/dev/null &")
+
 -- Garbage collection
 -- Enable for lower memory consumption
 -- ===================================================================
