@@ -509,7 +509,10 @@ awful.rules.rules = {
                 "Lutris",
                 "Chromium",
                 "^editor$",
-                "markdown_input"
+                "markdown_input",
+                "VSCodium",
+                "Planner",
+                "tabbed"
                 -- "Thunderbird",
             },
             type = {
