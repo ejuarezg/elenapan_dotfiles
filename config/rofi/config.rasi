@@ -1,4 +1,5 @@
 configuration {
+    dpi: 192;
     modi: "combi,windowcd,run";
     lines: 10;
     columns: 2;
