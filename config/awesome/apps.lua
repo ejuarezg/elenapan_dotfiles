@@ -63,6 +63,10 @@ apps.editor = function ()
     helpers.run_or_raise({instance = 'editor'}, false, user.editor, { switchtotag = true })
 end
 
+apps.ide = function ()
+    helpers.run_or_raise({class = 'VSCodium'}, false, user.ide, { switchtotag = true })
+end
+
 -- Toggle compositor
 apps.compositor = function ()
     awful.spawn.with_shell("sh -c 'pgrep picom > /dev/null && pkill picom || picom --config ~/.config/picom/picom.conf & disown'")
