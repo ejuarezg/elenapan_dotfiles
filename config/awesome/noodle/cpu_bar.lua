@@ -27,9 +27,9 @@ local cpu_bar = wibox.widget{
 
 awesome.connect_signal("evil::cpu", function(value)
     -- Use this if you want to display usage percentage
-    -- cpu_bar.value = value
+    cpu_bar.value = value
     -- Use this if you want to display idle percentage
-    cpu_bar.value = tonumber(100 - value)
+    -- cpu_bar.value = tonumber(100 - value)
 end)
 
 return cpu_bar
