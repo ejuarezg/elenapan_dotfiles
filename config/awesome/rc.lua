@@ -82,6 +82,10 @@ user = {
     file_manager = "kitty -1 --class files -e ranger",
     editor = "kitty -1 --class editor -e vim",
     ide = "code",
+    -- `--class instance_name` only defines instance (class is Alacritty); use
+    -- `--class instance_name,class_name` to define a class as well; `-y 19` is
+    -- an ad-hoc value affected by the height of the taglist wibox
+    dropdown = "tdrop -ma -h 45% -y 19 alacritty --class dropdown --config-file=" .. os.getenv("HOME") .. "/.config/alacritty/alacritty_dropdown.yml",
     email_client = "kitty -1 --class email -e neomutt",
     music_client = "kitty -o font_size=12 --class music -e ncmpcpp",
 
@@ -496,7 +500,8 @@ awful.rules.rules = {
                 "riotclientux.exe",
                 "leagueclient.exe",
                 "^editor$",
-                "markdown_input"
+                "markdown_input",
+                "dropdown"
             },
             class = {
                 "qutebrowser",

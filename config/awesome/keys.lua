@@ -555,7 +555,10 @@ keys.globalkeys = gears.table.join(
         {description = "file manager", group = "launcher"}),
     -- Process monitor
     awful.key({ superkey }, "p", apps.process_monitor,
-        {description = "process monitor", group = "launcher"})
+        {description = "process monitor", group = "launcher"}),
+    -- Dropdown terminal
+    awful.key({ ctrlkey }, "q", function() awful.spawn(user.dropdown) end,
+    {description = "show/hide dropdown terminal", group = "launcher"})
 )
 
 keys.clientkeys = gears.table.join(
