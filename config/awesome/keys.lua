@@ -519,7 +519,7 @@ keys.globalkeys = gears.table.join(
     awful.key({ superkey }, "F4", function() awful.spawn("visualizer") end,
         {description = "cava", group = "launcher"}),
     -- Spawn ncmpcpp in a terminal, with a special visualizer config
-    awful.key({ superkey, shiftkey }, "F4", function() awful.spawn(user.terminal .. " -e 'ncmpcpp -c ~/.config/ncmpcpp/config_visualizer -s visualizer'") end,
+    awful.key({ superkey, shiftkey }, "F4", function() awful.spawn(user.terminal .. " -e ncmpcpp -c ~/.config/ncmpcpp/config_visualizer -s visualizer") end,
         {description = "ncmpcpp", group = "launcher"}),
     -- Network dialog: nmapplet rofi frontend
     awful.key({ superkey }, "F11", function() awful.spawn("networks-rofi") end,
