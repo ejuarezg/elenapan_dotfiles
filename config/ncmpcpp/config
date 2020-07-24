@@ -1,7 +1,7 @@
 ### Directories ###
 ncmpcpp_directory = ~/.config/ncmpcpp
 lyrics_directory  = ~/.config/ncmpcpp/lyrics
-mpd_music_dir     = ~/mus
+mpd_music_dir     = ~/Music
 
 ### Behaviour ###
 execute_on_song_change = "bash ~/.config/ncmpcpp/mpd-notification"
