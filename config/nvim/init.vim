@@ -53,7 +53,7 @@ set colorcolumn=
 fun! ToggleCC()
   if &cc == ''
     " set cc=1,4,21
-    set cc=80
+    set cc=81
   else
     set cc=
   endif
