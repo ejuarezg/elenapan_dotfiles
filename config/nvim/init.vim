@@ -156,8 +156,8 @@ cmap <M-k> <up>
 cmap <M-j> <down>
 
 " Back to normal mode from insert
-" inoremap jk <esc>
-" inoremap JK <esc>
+inoremap kj <esc>
+inoremap KJ <esc>
 
 " Manually refresh file
 nmap <F5> :e!<cr>
