@@ -24,7 +24,7 @@ icons.text = {}
 icons.text.by_class = {
     -- Terminals
     ['kitty'] = { symbol = "", color = x.color5 },
-    ['Alacritty'] = { symbol = "", color = x.color5 },
+    ['Alacritty'] = { symbol = "", color = x.color6 },
     ['Termite'] = { symbol = "", color = x.color5 },
     ['URxvt'] = { symbol = "", color = x.color5 },
     ['st'] = { symbol = "", color = x.color5 },
