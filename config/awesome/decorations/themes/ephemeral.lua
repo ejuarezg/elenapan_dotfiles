@@ -12,8 +12,8 @@ local decorations = require("decorations")
 -- decorations.enable_rounding()
 
 -- Button configuration
-local gen_button_size = dpi(12)
-local gen_button_margin = dpi(6)
+local gen_button_size = dpi(10)
+local gen_button_margin = dpi(5)
 local gen_button_color_unfocused = x.color8
 local gen_button_shape = gears.shape.circle
 
@@ -36,7 +36,7 @@ client.connect_signal("request::titlebars", function(c)
             -- Generated buttons (original: heart )
             decorations.button(c, gen_button_shape, x.color3, gen_button_color_unfocused, x.color11, gen_button_size, gen_button_margin, "minimize"),
             decorations.button(c, gen_button_shape, x.color2, gen_button_color_unfocused, x.color10, gen_button_size, gen_button_margin, "maximize"),
-            decorations.text_button(c, "", "Material Icons 13", x.color1, gen_button_color_unfocused, x.color9, gen_button_size, gen_button_margin, "close"),
+            decorations.text_button(c, "", "Material Icons 11", x.color1, gen_button_color_unfocused, x.color9, gen_button_size, gen_button_margin, "close"),
 
             -- Create some extra padding at the edge
             helpers.horizontal_pad(gen_button_margin / 2),
