@@ -75,7 +75,7 @@ set statusline=%{RedrawModeColors(mode())}
 " Left side items
 " =======================
 set statusline+=%#MyStatuslineAccent#
-set statusline+=%#MyStatuslineAccentBody#\ 
+set statusline+=%#MyStatuslineAccentBody#%{mode()}\ 
 " Filename
 set statusline+=%#MyStatuslineFilename#\ %.20f
 set statusline+=%#MyStatuslineSeparator#\ 
