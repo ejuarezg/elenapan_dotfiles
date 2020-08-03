@@ -53,7 +53,7 @@ set colorcolumn=
 fun! ToggleCC()
   if &cc == ''
     " set cc=1,4,21
-    set cc=81
+    set cc=80
   else
     set cc=
   endif
@@ -157,7 +157,7 @@ cmap <M-j> <down>
 
 " Back to normal mode from insert
 inoremap kj <esc>
-inoremap KJ <esc>
+" inoremap KJ <esc>
 
 " Manually refresh file
 nmap <F5> :e!<cr>
