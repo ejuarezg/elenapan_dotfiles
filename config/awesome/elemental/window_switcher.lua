@@ -18,6 +18,13 @@ local item_width = dpi(500)
 local window_switcher_hide
 local get_num_clients
 awful.screen.connect_for_each_screen(function(s)
+    -- Helper function that sets/updates the icon of a task
+    -- according to its class
+    local function set_icon(item, c)
+        local i = class_icons[c.class] or class_icons['_']
+        item:get_children_by_id('text_icon')[1].markup = helpers.colorize_text(i.symbol, i.color)
+    end
+
     -- Tasklist
     s.window_switcher_tasklist = awful.widget.tasklist {
         screen   = s,
@@ -69,8 +76,9 @@ awful.screen.connect_for_each_screen(function(s)
             id = "bg_role",
             widget = wibox.container.background,
             create_callback = function(self, c, _, __)
-                local i = class_icons[c.class] or class_icons['_']
-                self:get_children_by_id('text_icon')[1].markup = helpers.colorize_text(i.symbol, i.color)
+                set_icon(self, c)
+                -- Handle clients which change their own class
+                c:connect_signal("property::class", function() set_icon(self, c) end)
             end,
         },
     }
@@ -116,6 +124,9 @@ end
 
 -- The client that was focused when the window_switcher was activated
 local window_switcher_first_client
+-- The clients that were minimized when the window switcher was
+-- activated
+local window_switcher_minimized_clients = {}
 
 -- Keygrabber configuration
 -- Helper functions for keybinds
@@ -132,10 +143,21 @@ window_switcher_hide = function()
             window_switcher_last_client:raise()
         end
     end
+
+    -- Minimize originally minimized clients
+    local s = awful.screen.focused()
+    local clients = s.selected_tag:clients()
+    for _, c in pairs(window_switcher_minimized_clients) do
+        if c and c.valid and not (client.focus and client.focus == c) then
+            c.minimized = true
+        end
+    end
+    -- Reset helper table
+    window_switcher_minimized_clients = {}
+
     -- Resume recording focus history
     awful.client.focus.history.enable_tracking()
     -- Stop and hide window_switcher
-    local s = awful.screen.focused()
     awful.keygrabber.stop(window_switcher_grabber)
     s.window_switcher.visible = false
 end
@@ -191,6 +213,19 @@ function window_switcher_show(s)
 
     -- Go to previously focused client (in the tag)
     awful.client.focus.history.previous()
+
+    -- Track minimized clients
+    -- Unminimize them
+    -- Lower them so that they are always below other
+    -- originally unminimized windows
+    local clients = s.selected_tag:clients()
+    for _, c in pairs(clients) do
+        if c.minimized then
+            table.insert(window_switcher_minimized_clients, c)
+            c.minimized = false
+            c:lower()
+        end
+    end
 
     -- Start the keygrabber
     window_switcher_grabber = awful.keygrabber.run(function(_, key, event)
