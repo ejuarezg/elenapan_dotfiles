@@ -400,6 +400,7 @@ awful.rules.rules = {
                 "File-roller",
                 "fst",
                 "Nvidia-settings",
+                "matplotlib",
             },
             name = {
                 "Event Tester",  -- xev
