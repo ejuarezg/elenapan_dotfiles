@@ -1,0 +1,17 @@
+#!/bin/sh
+# Launch spotify TUI client in a terminal with class "spotify"
+
+# Kitty
+kitty --class spotify -e spt
+
+# Alacritty
+# alacritty --class spotify -e spt
+
+# st / xst
+# st -c spotify -e spt
+
+# Termite
+# termite --class spotify --exec spt
+
+# Urxvt
+# urxvt -name spotify -e spt
