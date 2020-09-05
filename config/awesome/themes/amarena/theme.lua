@@ -50,7 +50,7 @@ theme.border_width  = dpi(0)
 theme.border_normal = x.background
 theme.border_focus  = x.background
 -- Rounded corners
-theme.border_radius = dpi(6)
+theme.border_radius = dpi(8)
 
 -- Titlebars
 -- (Titlebar items can be customized in titlebars.lua)
