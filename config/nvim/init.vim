@@ -37,6 +37,10 @@ set clipboard=unnamedplus
 " Remove timeout for partially typed commands
 set notimeout
 
+" By default timeoutlen is 1000 ms. Make sure to comment out `set notimeout`
+" for this to work as intended
+set timeoutlen=500
+
 " Spacemacs-like keybinds
 " Change <leader> bind from default \
 nnoremap <space> <nop>
