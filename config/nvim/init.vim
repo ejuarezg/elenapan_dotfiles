@@ -40,8 +40,14 @@ set notimeout
 " F keys
 " Quick write session with F2
 map <F2> :mksession! ~/.vim_session<cr>
-" And load session with F3
-map <F3> :source ~/.vim_session<cr>
+" Write session and exit leaderkey F2
+map <leader><F2> :wa<cr> :mksession! ~/.vim_session<cr> :qa<cr>
+" Browse recent files with leaderkey F4
+map <F3> :browse oldfiles<cr>
+" Write current buffer and close it with F3
+map <leader><F3> :update<cr> :bd<cr>
+" And load session with F4
+map <F4> :source ~/.vim_session<cr>
 
 " Fix indentation
 map <F7> gg=G<C-o><C-o>
