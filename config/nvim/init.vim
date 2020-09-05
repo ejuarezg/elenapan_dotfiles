@@ -37,6 +37,11 @@ set clipboard=unnamedplus
 " Remove timeout for partially typed commands
 set notimeout
 
+" Spacemacs-like keybinds
+" Change <leader> bind from default \
+nnoremap <space> <nop>
+let mapleader=" "
+
 " F keys
 " Quick write session with F2
 map <F2> :mksession! ~/.vim_session<cr>
@@ -105,11 +110,6 @@ imap <M-k> <up>
 imap <M-l> <right>
 imap <M-f> <C-right>
 imap <M-b> <C-left>
-
-" Spacemacs-like keybinds
-" Change <leader> bind from default \
-" nnoremap <space> <nop>
-" let mapleader=" "
 
 " Make ci( work like quotes do
 function! New_cib()
