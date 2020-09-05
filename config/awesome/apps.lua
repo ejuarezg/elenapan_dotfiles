@@ -104,7 +104,7 @@ apps.music = function ()
 end
 
 apps.process_monitor = function ()
-    helpers.run_or_raise({instance = 'htop'}, false, user.terminal.." --class htop -e htop", { switchtotag = true })
+    helpers.run_or_raise({instance = 'htop'}, false, user.terminal.." --class htop -e gotop", { switchtotag = true })
 end
 
 apps.process_monitor_gui = function ()
