@@ -69,7 +69,7 @@ end
 
 -- Toggle compositor
 apps.compositor = function ()
-    awful.spawn.with_shell("sh -c 'pgrep picom > /dev/null && pkill picom || picom --config ~/.config/picom/picom.conf & disown'")
+    awful.spawn.with_shell("sh -c 'pgrep picom > /dev/null && pkill picom || picom --config ~/.config/picom/picom.conf --log-level DEBUG --log-file ~/.cache/picom/picom_$(date +%Y-%m-%d_%H-%M-%S).log & disown'")
 end
 
 local night_mode_notif
