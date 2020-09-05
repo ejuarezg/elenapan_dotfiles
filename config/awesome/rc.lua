@@ -86,6 +86,7 @@ user = {
     -- `--class instance_name,class_name` to define a class as well; `-y 19` is
     -- an ad-hoc value affected by the height of the taglist wibox
     dropdown = "tdrop -ma -h 45% -y 19 alacritty --class dropdown --config-file=" .. os.getenv("HOME") .. "/.config/alacritty/alacritty_dropdown.yml",
+    -- launchup = "tdrop -ma -h 45% -y 55% alacritty --class dropdown --config-file=" .. os.getenv("HOME") .. "/.config/alacritty/alacritty_dropdown.yml",
     email_client = "kitty -1 --class email -e neomutt",
     music_client = "kitty -o font_size=12 --class music -e ncmpcpp",
 
@@ -401,6 +402,7 @@ awful.rules.rules = {
                 "fst",
                 "Nvidia-settings",
                 "matplotlib",
+                "MATLAB R2020a - academic use",
             },
             name = {
                 "Event Tester",  -- xev
@@ -518,6 +520,7 @@ awful.rules.rules = {
                 "^editor$",
                 "markdown_input",
                 "VSCodium",
+                "MATLAB R2020a - academic use",
                 "Planner",
                 "tabbed"
                 -- "Thunderbird",
@@ -910,17 +913,7 @@ awful.rules.rules = {
                 "6cord",
             },
         },
-        properties = { screen = 1, tag = awful.screen.focused().tags[4] }
-    },
-
-    -- IDEs
-    {
-        rule_any = {
-            class = {
-                "VSCodium"
-            },
-        },
-        properties = { screen = 1, tag = awful.screen.focused().tags[3] }
+        properties = { screen = 1, tag = awful.screen.focused().tags[5] }
     },
 
     -- Editing
@@ -928,7 +921,7 @@ awful.rules.rules = {
         rule_any = {
             class = {
                 "^editor$",
-                -- "Emacs",
+                "Emacs",
                 -- "Subl3",
             },
         },
@@ -940,6 +933,23 @@ awful.rules.rules = {
         rule_any = {
             class = {
                 "tabbed"
+            },
+            instance = {
+                "gst-launch-1.0",
+            },
+        },
+        except_any = {
+            instance = { "zathura_unpinned" }
+        },
+        properties = { screen = 1, tag = awful.screen.focused().tags[3] }
+    },
+
+    -- VS Codium and IDEs
+    {
+        rule_any = {
+            class = {
+                "VSCodium",
+                "MATLAB R2020a - academic use",
             },
         },
         properties = { screen = 1, tag = awful.screen.focused().tags[4] }
@@ -958,12 +968,13 @@ awful.rules.rules = {
         properties = { screen = 1, tag = awful.screen.focused().tags[5] }
     },
 
-    -- Image editing
+    -- Image editing and remote desktop
     {
         rule_any = {
             class = {
                 "Gimp",
                 "Inkscape",
+                "Nxplayer.bin",
             },
         },
         properties = { screen = 1, tag = awful.screen.focused().tags[6] }
@@ -1157,12 +1168,9 @@ end)
 -- Autostart programs
 -- ===================================================================
 
--- Taken from apps.compositor function in apps.lua
-awful.spawn.with_shell("sh -c 'picom --config ~/.config/picom/picom.conf & disown'")
-
--- Taken from apps.night_mode function in apps.lua, but with the fade-in left
--- enabled
-awful.spawn.easy_async_with_shell("redshift -l 0:0 -t 6500:3700 &>/dev/null &")
+-- Redshift
+-- TODO Kill redshift when restarting Awesome
+awful.spawn.easy_async_with_shell("redshift -l " .. os.getenv("GEOLOCATION") .. " -t 6500:3500 &>/dev/null &")
 
 -- Garbage collection
 -- Enable for lower memory consumption
