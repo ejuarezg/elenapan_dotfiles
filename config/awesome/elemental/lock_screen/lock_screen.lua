@@ -93,11 +93,11 @@ local fancy_date = wibox.widget {
 
 local time = {
         {
-            font = "sans bold 16",
+            font = "sans bold 24",
             widget = wibox.widget.textclock("%H")
         },
         {
-            font = "sans 16",
+            font = "sans 24",
             widget = wibox.widget.textclock("%M")
         },
         spacing = dpi(2),
