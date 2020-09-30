@@ -52,13 +52,13 @@ local day_of_the_week = wibox.widget {
     nil,
     {
         dummy_textclock,
+        dotw_containers[7],
         dotw_containers[1],
         dotw_containers[2],
         dotw_containers[3],
         dotw_containers[4],
         dotw_containers[5],
         dotw_containers[6],
-        dotw_containers[7],
         spacing = dpi(4),
         layout = wibox.layout.fixed.horizontal
     },
