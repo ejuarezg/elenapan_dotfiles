@@ -103,27 +103,28 @@ keys.globalkeys = gears.table.join(
         end,
         {description = "focus right", group = "client"}),
 
-    -- Focus client by direction (arrow keys)
+    -- Move to tag on the left and right, and to first and last tag (arrow
+    -- keys)
     awful.key({ superkey }, "Down",
         function()
-            awful.client.focus.bydirection("down")
+            helpers.tag_back_and_forth(1)
         end,
-        {description = "focus down", group = "client"}),
+        {description = "move to first tag", group = "tag"}),
     awful.key({ superkey }, "Up",
         function()
-            awful.client.focus.bydirection("up")
+            helpers.tag_back_and_forth(10)
         end,
-        {description = "focus up", group = "client"}),
+        {description = "move to last tag", group = "tag"}),
     awful.key({ superkey }, "Left",
         function()
-            awful.client.focus.bydirection("left")
+            awful.tag.viewprev()
         end,
-        {description = "focus left", group = "client"}),
+        {description = "move to tag on the left", group = "tag"}),
     awful.key({ superkey }, "Right",
         function()
-            awful.client.focus.bydirection("right")
+            awful.tag.viewnext()
         end,
-        {description = "focus right", group = "client"}),
+        {description = "move to tag on the right", group = "tag"}),
 
     -- Window switcher
     awful.key({ superkey }, "Tab",
