@@ -106,7 +106,8 @@ user = {
         videos = os.getenv("XDG_VIDEOS_DIR") or "~/Videos",
         -- Make sure the directory exists so that your screenshots
         -- are not lost
-        screenshots = os.getenv("XDG_SCREENSHOTS_DIR") or "~/Pictures/screenshots/",
+        screenshots = os.getenv("XDG_SCREENSHOTS_DIR") or "~/Pictures/screenshots",
+        wallpapers = os.getenv("XDG_SCREENSHOTS_DIR") or "~/Pictures/wallpapers",
     },
 
     -- >> Sidebar <<
@@ -522,7 +523,8 @@ awful.rules.rules = {
                 "VSCodium",
                 "MATLAB R2020a - academic use",
                 "Planner",
-                "tabbed"
+                "tabbed",
+                "Termius",
                 -- "Thunderbird",
             },
             type = {
@@ -856,6 +858,7 @@ awful.rules.rules = {
     {
         rule_any = {
             class = {
+                "Chromium",
                 "firefox",
                 "Nightly",
                 -- "qutebrowser",
@@ -924,7 +927,6 @@ awful.rules.rules = {
     {
         rule_any = {
             class = {
-                "Chromium",
                 "Chromium-browser",
                 "discord",
                 "TelegramDesktop",
@@ -973,6 +975,7 @@ awful.rules.rules = {
             class = {
                 "VSCodium",
                 "MATLAB R2020a - academic use",
+                "processing-app-Base", -- Arduino
             },
         },
         properties = { screen = 1, tag = awful.screen.focused().tags[4] }
@@ -988,7 +991,7 @@ awful.rules.rules = {
                 "htop",
             },
         },
-        properties = { screen = 1, tag = awful.screen.focused().tags[5] }
+        properties = { screen = 1, tag = awful.screen.focused().tags[6] }
     },
 
     -- Image editing and remote desktop
@@ -1003,11 +1006,12 @@ awful.rules.rules = {
         properties = { screen = 1, tag = awful.screen.focused().tags[6] }
     },
 
-    -- Mail
+    -- Mail and calendar
     {
         rule_any = {
             class = {
                 "email",
+                "Planner",
             },
             instance = {
                 "email",
@@ -1023,6 +1027,7 @@ awful.rules.rules = {
                 "Steam",
                 "battle.net.exe",
                 "Lutris",
+                "spotify",
             },
             name = {
                 "Steam",
