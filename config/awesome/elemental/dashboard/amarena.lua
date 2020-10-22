@@ -25,13 +25,13 @@ dashboard.bg = beautiful.dashboard_bg or beautiful.exit_screen_bg or beautiful.w
 dashboard.fg = beautiful.dashboard_fg or beautiful.exit_screen_fg or beautiful.wibar_fg or "#FEFEFE"
 
 -- Add dashboard or mask to each screen
-for s in screen do
+awful.screen.connect_for_each_screen(function(s)
     if s == screen.primary then
         s.dashboard = dashboard
     else
         s.dashboard = helpers.screen_mask(s, dashboard.bg)
     end
-end
+end)
 
 local function set_visibility(v)
     for s in screen do
@@ -176,7 +176,7 @@ local disk_hover_text = wibox.widget {
 
 awesome.connect_signal("evil::disk", function(used, total)
     disk_arc.value = used * 100 / total
-    disk_hover_text_value.markup = helpers.colorize_text(tostring(total - used).."G", x.color4)
+    disk_hover_text_value.markup = helpers.colorize_text(tostring(helpers.round(total - used, 1)).."G", x.color4)
 end)
 
 local disk_icon = wibox. widget {
