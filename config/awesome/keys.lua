@@ -882,7 +882,7 @@ keys.taglist_buttons = gears.table.join(
         -- t:view_only()
         helpers.tag_back_and_forth(t.index)
     end),
-    awful.button({ modkey }, 1, function(t)
+    awful.button({ superkey }, 1, function(t)
         if client.focus then
             client.focus:move_to_tag(t)
         end
