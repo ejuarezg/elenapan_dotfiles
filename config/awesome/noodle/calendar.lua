@@ -56,6 +56,7 @@ end
 calendar_widget = wibox.widget {
     date     = os.date('*t'),
     font     = "sans medium 13",
+    start_sunday = true,
     long_weekdays = false,
     spacing  = dpi(3),
     fn_embed = decorate_cell,
