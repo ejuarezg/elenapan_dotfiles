@@ -965,9 +965,9 @@ awful.rules.rules = {
                 "gst-launch-1.0",
             },
         },
-        except_any = {
-            instance = { "zathura_unpinned" }
-        },
+        -- except_any = {
+        --     instance = { "zathura_unpinned" }
+        -- },
         properties = { screen = 1, tag = awful.screen.focused().tags[3] }
     },
 
