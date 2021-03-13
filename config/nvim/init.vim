@@ -43,8 +43,8 @@ set timeoutlen=500
 
 " Spacemacs-like keybinds
 " Change <leader> bind from default \
-nnoremap <space> <nop>
-let mapleader=" "
+" nnoremap <space> <nop>
+" let mapleader=" "
 
 " F keys
 " Quick write session with F2
@@ -185,6 +185,7 @@ set autoindent
 
 set nocompatible
 filetype plugin indent on
+syntax on
 
 " Write buffer through sudo (works on vim but not neovim)
 " cnoreabbrev w!! w !sudo -S tee % >/dev/null
