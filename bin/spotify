@@ -1,6 +1,9 @@
 #!/bin/sh
 # Launch spotify TUI client in a terminal with class "spotify"
 
+# Restart librespot service
+# systemctl --user restart librespot.service
+
 # Kitty
 kitty --class spotify -e spt
 
