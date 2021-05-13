@@ -875,14 +875,6 @@ awful.rules.rules = {
     },
 
     -- Firefox Picture-in-Picture (PiP)
-    -- https://awesomewm.org/doc/api/libraries/awful.rules.html
-    -- TODO Use the class name as well
-    -- TODO Why doesn't 'tags = tagnames` work?
-    -- TODO Move PiP window to bottom right and get rid of bottom gap
-    -- https://github.com/Drauthius/awesome-sharedtags
-    -- https://stackoverflow.com/questions/44616112/how-can-i-show-an-application-on-multiple-tags-in-awesome-wm-4-0
-    -- https://superuser.com/questions/315770/awesome-window-manager-rule-assigning-programs-to-tags
-    -- https://www.reddit.com/r/awesomewm/comments/g61ljy/interesting_behavior_with_firefox/
     {
         rule_any = {
             instance = { "Toolkit" },
@@ -891,9 +883,6 @@ awful.rules.rules = {
             screen = awful.screen.focused(),
             tags = { "1", "2", "3", "4", "5"},
             placement = awful.placement.bottom_right,
-            -- honor_padding = false,
-            -- honor_workarea = false,
-            -- margins = 0,
         },
     },
 
