@@ -838,7 +838,7 @@ keys.clientbuttons = gears.table.join(
 
 -- Mouse buttons on the tasklist
 -- Use 'Any' modifier so that the same buttons can be used in the floating
--- tasklist displayed by the window switcher while the modkey is pressed
+-- tasklist displayed by the window switcher while the superkey is pressed
 keys.tasklist_buttons = gears.table.join(
     awful.button({ 'Any' }, 1,
         function (c)
@@ -893,7 +893,7 @@ keys.taglist_buttons = gears.table.join(
             client.focus:move_to_tag(t)
         end
     end),
-    awful.button({ modkey }, 3, function(t)
+    awful.button({ superkey }, 3, function(t)
         if client.focus then
             client.focus:toggle_tag(t)
         end
