@@ -948,7 +948,6 @@ awful.rules.rules = {
         rule_any = {
             class = {
                 "^editor$",
-                "Emacs",
                 -- "Subl3",
             },
         },
@@ -978,6 +977,7 @@ awful.rules.rules = {
                 "VSCodium",
                 "MATLAB R2020a - academic use",
                 "processing-app-Base", -- Arduino
+                "Emacs",
             },
         },
         properties = { screen = 1, tag = awful.screen.focused().tags[4] }
