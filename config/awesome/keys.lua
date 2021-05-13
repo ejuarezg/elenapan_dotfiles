@@ -172,18 +172,18 @@ keys.globalkeys = gears.table.join(
     ),
 
     -- Resize focused client or layout factor
-    awful.key({ superkey, ctrlkey }, "Down", function (c)
-        helpers.resize_dwim(client.focus, "down")
-    end),
-    awful.key({ superkey, ctrlkey }, "Up", function (c)
-        helpers.resize_dwim(client.focus, "up")
-    end),
-    awful.key({ superkey, ctrlkey }, "Left", function (c)
-        helpers.resize_dwim(client.focus, "left")
-    end),
-    awful.key({ superkey, ctrlkey }, "Right", function (c)
-        helpers.resize_dwim(client.focus, "right")
-    end),
+    -- awful.key({ superkey, ctrlkey }, "Down", function (c)
+    --     helpers.resize_dwim(client.focus, "down")
+    -- end),
+    -- awful.key({ superkey, ctrlkey }, "Up", function (c)
+    --     helpers.resize_dwim(client.focus, "up")
+    -- end),
+    -- awful.key({ superkey, ctrlkey }, "Left", function (c)
+    --     helpers.resize_dwim(client.focus, "left")
+    -- end),
+    -- awful.key({ superkey, ctrlkey }, "Right", function (c)
+    --     helpers.resize_dwim(client.focus, "right")
+    -- end),
     awful.key({ superkey, ctrlkey }, "j", function (c)
         helpers.resize_dwim(client.focus, "down")
     end),
@@ -197,11 +197,11 @@ keys.globalkeys = gears.table.join(
         helpers.resize_dwim(client.focus, "right")
     end),
 
-    -- No need for these (single screen setup)
-    --awful.key({ superkey, ctrlkey }, "j", function () awful.screen.focus_relative( 1) end,
-    --{description = "focus the next screen", group = "screen"}),
-    --awful.key({ superkey, ctrlkey }, "k", function () awful.screen.focus_relative(-1) end,
-    --{description = "focus the previous screen", group = "screen"}),
+    -- Useful for multi screen setup
+    awful.key({ superkey, ctrlkey }, "Left", function () awful.screen.focus_relative( 1) end,
+    {description = "focus the next screen", group = "screen"}),
+    awful.key({ superkey, ctrlkey }, "Right", function () awful.screen.focus_relative(-1) end,
+    {description = "focus the previous screen", group = "screen"}),
     
     -- Urgent or Undo:
     -- Jump to urgent client or (if there is no such client) go back
