@@ -122,22 +122,24 @@ function exit_screen_hide()
     exit_screen.visible = false
 end
 
+function lock_screen()
+    lock_command()
+    -- Kinda fixes the "white" (undimmed) flash that appears between
+    -- exit screen disappearing and lock screen appearing
+    gears.timer.delayed_call(function()
+        exit_screen_hide()
+    end)
+end
+
 local keybinds = {
     ['escape'] = exit_screen_hide,
     ['q'] = exit_screen_hide,
-    ['x'] = exit_screen_hide,
+    ['x'] = lock_screen,
     ['s'] = function () suspend_command(); exit_screen_hide() end,
     ['e'] = exit_command,
     ['p'] = poweroff_command,
     ['r'] = reboot_command,
-    ['l'] = function ()
-        lock_command()
-        -- Kinda fixes the "white" (undimmed) flash that appears between
-        -- exit screen disappearing and lock screen appearing
-        gears.timer.delayed_call(function()
-            exit_screen_hide()
-        end)
-    end
+    ['l'] = lock_screen
 }
 
 function exit_screen_show()
