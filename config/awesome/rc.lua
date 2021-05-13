@@ -856,6 +856,18 @@ awful.rules.rules = {
     ---------------------------------------------
     -- Start application on specific workspace --
     ---------------------------------------------
+    -- Firefox Picture-in-Picture (PiP)
+    {
+        rule_any = {
+            instance = { "Toolkit" },
+        },
+        properties = {
+            screen = awful.screen.focused(),
+            tags = { "1", "2", "3", "4", "5"},
+            placement = awful.placement.bottom_right,
+        },
+    },
+
     -- Browsing
     {
         rule_any = {
@@ -872,64 +884,6 @@ awful.rules.rules = {
             type = { "dialog" }
         },
         properties = { screen = 1, tag = awful.screen.focused().tags[1] },
-    },
-
-    -- Firefox Picture-in-Picture (PiP)
-    {
-        rule_any = {
-            instance = { "Toolkit" },
-        },
-        properties = {
-            screen = awful.screen.focused(),
-            tags = { "1", "2", "3", "4", "5"},
-            placement = awful.placement.bottom_right,
-        },
-    },
-
-    -- Games
-    {
-        rule_any = {
-            class = {
-                "underlords",
-                "lt-love",
-                "portal2_linux",
-                "deadcells",
-                "csgo_linux64",
-                "EtG.x86_64",
-                "factorio",
-                "dota2",
-                "Terraria.bin.x86",
-                "dontstarve_steam",
-                "Wine",
-                "trove.exe"
-            },
-            instance = {
-                "love.exe",
-                "synthetik.exe",
-                "pathofexile_x64steam.exe",
-                "leagueclient.exe",
-                "glyphclientapp.exe"
-            },
-        },
-        properties = { screen = 1, tag = awful.screen.focused().tags[9] }
-    },
-
-    -- Chatting
-    {
-        rule_any = {
-            class = {
-                "Chromium-browser",
-                "discord",
-                "TelegramDesktop",
-                "Signal",
-                "Slack",
-                "TeamSpeak 3",
-                "zoom",
-                "weechat",
-                "6cord",
-            },
-        },
-        properties = { screen = 1, tag = awful.screen.focused().tags[5] }
     },
 
     -- Editing
@@ -970,6 +924,24 @@ awful.rules.rules = {
             },
         },
         properties = { screen = 1, tag = awful.screen.focused().tags[4] }
+    },
+
+    -- Chatting
+    {
+        rule_any = {
+            class = {
+                "Chromium-browser",
+                "discord",
+                "TelegramDesktop",
+                "Signal",
+                "Slack",
+                "TeamSpeak 3",
+                "zoom",
+                "weechat",
+                "6cord",
+            },
+        },
+        properties = { screen = 1, tag = awful.screen.focused().tags[5] }
     },
 
     -- System monitoring
@@ -1025,6 +997,34 @@ awful.rules.rules = {
             }
         },
         properties = { screen = 1, tag = awful.screen.focused().tags[8] }
+    },
+
+    -- Games
+    {
+        rule_any = {
+            class = {
+                "underlords",
+                "lt-love",
+                "portal2_linux",
+                "deadcells",
+                "csgo_linux64",
+                "EtG.x86_64",
+                "factorio",
+                "dota2",
+                "Terraria.bin.x86",
+                "dontstarve_steam",
+                "Wine",
+                "trove.exe"
+            },
+            instance = {
+                "love.exe",
+                "synthetik.exe",
+                "pathofexile_x64steam.exe",
+                "leagueclient.exe",
+                "glyphclientapp.exe"
+            },
+        },
+        properties = { screen = 1, tag = awful.screen.focused().tags[9] }
     },
 
     -- Miscellaneous
