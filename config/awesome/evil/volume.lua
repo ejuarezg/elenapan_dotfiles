@@ -7,14 +7,14 @@ local awful = require("awful")
 local volume_old = -1
 local muted_old = -1
 local function emit_volume_info()
-    -- Get volume info of the currently active sink
-    -- The currently active sink has a star `*` in front of its index
-    -- In the output of `pacmd list-sinks`, lines +7 and +11 after "* index:"
-    -- contain the volume level and muted state respectively
-    -- This is why we are using `awk` to print them.
-    awful.spawn.easy_async_with_shell("pacmd list-sinks | awk '/\\* index: /{nr[NR+7];nr[NR+11]}; NR in nr'", function(stdout)
-        local volume = stdout:match('(%d+)%% /')
-        local muted = stdout:match('muted:(%s+)[yes]')
+    -- Get volume info of the Master ALSA mixer.
+    -- The lines starting with "Front Left:" or "Front Right:"
+    -- contain the volume level and muted state.
+    -- We `grep` the front left channel and assume the other
+    -- channels have the same volume level.
+    awful.spawn.easy_async_with_shell("amixer sget Master | grep 'Front Left:'", function(stdout)
+        local volume = stdout:match('(%d+)%%')
+        local muted = stdout:match('%[off%]')
         local muted_int = muted and 1 or 0
         local volume_int = tonumber(volume)
         -- Only send signal if there was a change
