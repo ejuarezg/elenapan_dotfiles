@@ -197,12 +197,16 @@ keys.globalkeys = gears.table.join(
         helpers.resize_dwim(client.focus, "right")
     end),
 
-    -- Useful for multi screen setup
-    awful.key({ superkey, ctrlkey }, "Left", function () awful.screen.focus_relative( 1) end,
+    -- Move between screens. Useful for multi screen setup
+    awful.key({ superkey, ctrlkey }, "Right", function () awful.screen.focus_relative(1) end,
     {description = "focus the next screen", group = "screen"}),
-    awful.key({ superkey, ctrlkey }, "Right", function () awful.screen.focus_relative(-1) end,
+    awful.key({ superkey, ctrlkey }, "Left", function () awful.screen.focus_relative(-1) end,
     {description = "focus the previous screen", group = "screen"}),
-    
+    awful.key({ superkey }, "]", function () awful.screen.focus_relative(1) end,
+    {description = "focus the next screen", group = "screen"}),
+    awful.key({ superkey }, "[", function () awful.screen.focus_relative(-1) end,
+    {description = "focus the previous screen", group = "screen"}),
+
     -- Urgent or Undo:
     -- Jump to urgent client or (if there is no such client) go back
     -- to the last tag
