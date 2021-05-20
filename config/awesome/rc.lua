@@ -86,7 +86,6 @@ user = {
     -- `--class instance_name,class_name` to define a class as well; `-y 19` is
     -- an ad-hoc value affected by the height of the taglist wibox
     dropdown = "tdrop -ma -h 45% -y 19 alacritty --class dropdown --config-file=" .. os.getenv("HOME") .. "/.config/alacritty/alacritty_dropdown.yml",
-    -- launchup = "tdrop -ma -h 45% -y 55% alacritty --class dropdown --config-file=" .. os.getenv("HOME") .. "/.config/alacritty/alacritty_dropdown.yml",
     email_client = "kitty -1 --class email -e neomutt",
     music_client = "kitty -o font_size=12 --class music -e ncmpcpp",
 
@@ -527,6 +526,7 @@ awful.rules.rules = {
                 "Planner",
                 "tabbed",
                 "Termius",
+                "Popcorn-Time",
                 -- "Thunderbird",
             },
             type = {
@@ -991,6 +991,7 @@ awful.rules.rules = {
                 "battle.net.exe",
                 "Lutris",
                 "spotify",
+                "Popcorn-Time",
             },
             name = {
                 "Steam",
@@ -1035,8 +1036,8 @@ awful.rules.rules = {
                 "torrent",
                 "Transmission",
                 "Deluge",
+                "KeePassXC",
                 "VirtualBox Manager",
-                "KeePassXC"
             },
             instance = {
                 "torrent",
