@@ -12,7 +12,7 @@ local helpers = require("helpers")
 -- The real background color is set in the widget_template
 beautiful.notification_bg = "#00000000"
 
-local default_icon = ""
+local default_icon = ""
 
 -- Custom text icons according to the notification's app_name
 -- plus whether the title should be visible or not
