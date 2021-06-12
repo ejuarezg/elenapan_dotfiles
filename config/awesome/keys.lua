@@ -639,6 +639,12 @@ keys.clientkeys = gears.table.join(
         c:relative_move(dpi( 20), 0, 0, 0)
     end),
 
+    -- My commands
+    awful.key({ superkey, shiftkey }, "[", function (c) c:move_to_screen() end,
+    {description = "move to screen", group = "client"}),
+    awful.key({ superkey, shiftkey }, "]", function (c) c:move_to_screen() end,
+    {description = "move to screen", group = "client"}),
+
     -- Toggle titlebars (for focused client only)
     awful.key({ superkey,           }, "t",
         function (c)
