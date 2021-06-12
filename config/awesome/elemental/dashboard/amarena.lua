@@ -104,7 +104,7 @@ local user_picture = wibox.widget {
 }
 local username = os.getenv("USER")
 local user_text = wibox.widget.textbox(username:upper())
-user_text.font = "SF Pro Display Bold 20"
+user_text.font = "sans bold 20"
 user_text.align = "center"
 user_text.valign = "center"
 
