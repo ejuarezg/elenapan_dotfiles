@@ -66,7 +66,7 @@ local day_of_the_week = wibox.widget {
 }
 
 local month = wibox.widget {
-    font = "Museo Sans Bold 100",
+    font = "sans bold 100",
     align = "center",
     valign = "top",
     widget = wibox.widget.textclock("%B %d")
