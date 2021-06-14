@@ -195,16 +195,17 @@ determine the exact padding."
    ((markdown-code-face &override) :background (doom-lighten base3 0.05))
 
    ;; org-mode
-   (org-hide :foreground hidden)
-   (org-level-1 :weight 'bold :family "sans" :height 1.75 :foreground xr6)
-   (org-level-2 :weight 'bold :family "sans" :height 1.50 :foreground xr4)
-   (org-level-3 :weight 'bold :family "sans" :height 1.25 :foreground xr5)
-   (org-level-4 :weight 'bold :family "sans" :height 1.10 :foreground xr3)
-   (org-level-5 :weight 'bold :family "sans" :foreground xr6)
-   (org-level-6 :weight 'bold :family "sans" :foreground xr4)
-   (org-level-7 :weight 'bold :family "sans" :foreground xr5)
-   (org-level-8 :weight 'bold :family "sans" :foreground xr3)
-   (solaire-org-hide-face :foreground hidden))
+   ;; (org-hide :foreground hidden)
+   ;; (org-level-1 :weight 'bold :family "sans" :height 1.75 :foreground xr6)
+   ;; (org-level-2 :weight 'bold :family "sans" :height 1.50 :foreground xr4)
+   ;; (org-level-3 :weight 'bold :family "sans" :height 1.25 :foreground xr5)
+   ;; (org-level-4 :weight 'bold :family "sans" :height 1.10 :foreground xr3)
+   ;; (org-level-5 :weight 'bold :family "sans" :foreground xr6)
+   ;; (org-level-6 :weight 'bold :family "sans" :foreground xr4)
+   ;; (org-level-7 :weight 'bold :family "sans" :foreground xr5)
+   ;; (org-level-8 :weight 'bold :family "sans" :foreground xr3)
+   ;; (solaire-org-hide-face :foreground hidden)
+   )
 
 
   ;; --- extra variables ---------------------
