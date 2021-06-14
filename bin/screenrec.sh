@@ -42,7 +42,10 @@ if [ -z "$pid" ]; then
     # ffmpeg $AUDIO -s $SCREEN_RESOLUTION -f x11grab -i :0.0 -c:v h264_nvenc -profile high444p -pixel_format yuv444p -preset default $FILENAME
 
     # --- Software decoding ---
-    ffmpeg -f x11grab -s $SCREEN_RESOLUTION -i :0.0 -vcodec libx264 -preset medium -crf 22 -y $FILENAME
+    # ffmpeg -f x11grab -s $SCREEN_RESOLUTION -i :0.0 -vcodec libx264 -preset medium -crf 22 -y $FILENAME
+
+    # --- Hardware decoding (for Intel integrated graphics) ---
+    ffmpeg -vaapi_device /dev/dri/renderD128 -f x11grab -video_size $SCREEN_RESOLUTION -framerate 15 -i :0 -vf "format=nv12,hwupload" -c:v h264_vaapi -qp 24 -y $FILENAME
 
     notify-send "Screen recording over." --urgency low -i $REC_ICON_PATH
 else
