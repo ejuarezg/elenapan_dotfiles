@@ -330,6 +330,11 @@ keys.globalkeys = gears.table.join(
             awful.spawn.with_shell("rofi -matching fuzzy -show combi")
         end,
         {description = "rofi launcher", group = "launcher"}),
+    awful.key({ superkey }, "space",
+        function()
+            awful.spawn.with_shell("rofi -matching fuzzy -modi drun -show")
+        end,
+        {description = "rofi launcher (desktop files only)", group = "launcher"}),
 
     -- Run
     awful.key({ superkey }, "r",
