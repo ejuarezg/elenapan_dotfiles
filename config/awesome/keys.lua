@@ -4,6 +4,7 @@ local gears = require("gears")
 local beautiful = require("beautiful")
 local apps = require("apps")
 local decorations = require("decorations")
+local hotkeys_popup = require("awful.hotkeys_popup")
 
 local helpers = require("helpers")
 
@@ -81,6 +82,11 @@ keys.desktopbuttons = gears.table.join(
 
 -- {{{ Key bindings
 keys.globalkeys = gears.table.join(
+    -- Help
+    awful.key({ superkey, shiftkey }, "a",
+            hotkeys_popup.show_help,
+        {description="show help", group="awesome"}),
+
     -- Focus client by direction (hjkl keys)
     awful.key({ superkey }, "j",
         function()
