@@ -12,7 +12,7 @@ local function emit_volume_info()
     -- contain the volume level and muted state.
     -- We `grep` the front left channel and assume the other
     -- channels have the same volume level.
-    awful.spawn.easy_async_with_shell("amixer sget Master | grep 'Front Left:'", function(stdout)
+    awful.spawn.easy_async_with_shell("amixer -D pulse sget Master", function(stdout)
         local volume = stdout:match('(%d+)%%')
         local muted = stdout:match('%[off%]')
         local muted_int = muted and 1 or 0
