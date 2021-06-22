@@ -10,16 +10,25 @@ local startup_apps = {
     -- "udiskie",
     -- "xidlehook --not-when-fullscreen --not-when-audio  --timer 300 'light -S 1' 'light -S 50' --timer 60 'light -S 50;" ..default_apps.lock_screen .." ' '' --timer 900 'systemctl suspend'  ''",
     "light -S 50",
-    "pgrep polkitd || /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1",
+    "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1",
 }
 
 
 local spawn_once = function (cmd)
     local findme = cmd
+
     local firstspace = cmd:find(" ")
     if firstspace then
         findme = cmd:sub(0, firstspace - 1)
     end
+
+    -- Find the command when given an absolute path
+    local lastslash = findme:find("/[^/]*$")
+    if lastslash then
+        -- NOTE pgrep only cares about the first 15 characters of a command
+        findme = findme:sub(lastslash + 1, lastslash + 15)
+    end
+
     awful.spawn.easy_async_with_shell(
         string.format('pgrep -u $USER -x %s > /dev/null || (%s)', findme, cmd),
         function(_, stderr)
