@@ -1188,9 +1188,8 @@ end)
 -- Autostart programs
 -- ===================================================================
 
--- Redshift
--- TODO Kill redshift when restarting Awesome
-awful.spawn.easy_async_with_shell("redshift -l " .. os.getenv("GEOLOCATION") .. " -t 6500:3500 &>/dev/null &")
+-- Add your startup programs in the autostart module
+require("autostart")
 
 -- Garbage collection
 -- Enable for lower memory consumption
