@@ -46,8 +46,13 @@ end)
 
 local function set_visibility(v)
     for s in screen do
-        s.mylockscreen.visible = v
+        if v == true and s.mylockscreen.visible == true then
+            return false
+        else
+            s.mylockscreen.visible = v
+        end
     end
+    return true
 end
 
 -- Items
@@ -228,8 +233,9 @@ local function grab_password()
 end
 
 function lock_screen_show()
-    set_visibility(true) 
-    grab_password()
+    if set_visibility(true) then
+        grab_password()
+    end
 end
 
 -- Item placement
