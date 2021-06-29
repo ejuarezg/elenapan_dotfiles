@@ -893,27 +893,24 @@ awful.rules.rules = {
                 "^editor$",
                 -- "Subl3",
             },
+            instance = {
+                "zathura$",
+            },
         },
         properties = { screen = 1, tag = awful.screen.focused().tags[2] }
     },
 
-    -- Document viewers
+    -- Terminal apps
     {
         rule_any = {
             class = {
-                "tabbed"
-            },
-            instance = {
-                "gst-launch-1.0",
+                "kitty",
             },
         },
-        -- except_any = {
-        --     instance = { "zathura_unpinned" }
-        -- },
         properties = { screen = 1, tag = awful.screen.focused().tags[3] }
     },
 
-    -- VS Codium and IDEs
+    -- IDEs and document viewers
     {
         rule_any = {
             class = {
@@ -921,6 +918,7 @@ awful.rules.rules = {
                 "MATLAB R2020a - academic use",
                 "processing-app-Base", -- Arduino
                 "Emacs",
+                "Zotero",
             },
         },
         properties = { screen = 1, tag = awful.screen.focused().tags[4] }
@@ -944,19 +942,6 @@ awful.rules.rules = {
         properties = { screen = 1, tag = awful.screen.focused().tags[5] }
     },
 
-    -- System monitoring
-    {
-        rule_any = {
-            class = {
-                "htop",
-            },
-            instance = {
-                "htop",
-            },
-        },
-        properties = { screen = 1, tag = awful.screen.focused().tags[6] }
-    },
-
     -- Image editing and remote desktop
     {
         rule_any = {
@@ -974,7 +959,7 @@ awful.rules.rules = {
         rule_any = {
             class = {
                 "email",
-                "Planner",
+                "planner$",
             },
             instance = {
                 "email",
@@ -983,7 +968,7 @@ awful.rules.rules = {
         properties = { screen = 1, tag = awful.screen.focused().tags[7] }
     },
 
-    -- Game clients/launchers
+    -- Game clients/launchers and system monitoring
     {
         rule_any = {
             class = {
@@ -992,9 +977,11 @@ awful.rules.rules = {
                 "Lutris",
                 "spotify",
                 "Popcorn-Time",
+                "htop",
             },
             name = {
                 "Steam",
+                "htop",
             }
         },
         properties = { screen = 1, tag = awful.screen.focused().tags[8] }
