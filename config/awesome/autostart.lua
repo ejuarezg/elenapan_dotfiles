@@ -8,9 +8,11 @@ local startup_apps = {
     -- "picom -b --experimental-backends --config ~/.config/picom/picom.conf",
     "redshift -t 6500:3500 -l " .. os.getenv("GEOLOCATION"),
     -- "udiskie",
-    -- "xidlehook --not-when-fullscreen --not-when-audio  --timer 300 'light -S 1' 'light -S 50' --timer 60 'light -S 50;" ..default_apps.lock_screen .." ' '' --timer 900 'systemctl suspend'  ''",
+    -- Note: 3600 seconds is 1 hour
+    "xidlehook --not-when-fullscreen --not-when-audio --timer 900 'light -S 1' 'light -S 50' --timer 15 'light -S 50; awesome-client \"lock_screen_show()\"' '' --timer 14400 'systemctl suspend' ''",
     "light -S 50",
     "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1",
+    "xset s off -dpms",
 }
 
 
